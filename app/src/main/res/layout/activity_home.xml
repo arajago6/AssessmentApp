@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingTop="6dp"
+        android:animateLayoutChanges="true"
+        tools:context="com.arajago6.assessmentapp.HomeActivity">
+
+        <ImageSwitcher
+            android:id="@+id/imgSwitcher"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/actionFrame"
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/imgSwitcher">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_horizontal|top">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight=".75"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:layout_gravity="left|center_vertical"
+                    android:hint="@string/action_editText_hint"
+                    android:ems="5"
+                    android:textColorHint="@color/colorWhite"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="15sp"
+                    android:id="@+id/actionEditText"
+                    android:theme="@style/Theme.App.Accent.Action"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight=".03"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_weight=".22"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_button_text"
+                    android:background="@drawable/accent_button"
+                    android:textColor="@color/colorWhite"
+                    android:id="@+id/go_button"
+                    android:layout_gravity="right|center_vertical"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/card_button"
+            android:layout_below="@+id/actionFrame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="4dp"
+            android:clickable="true"
+            android:onClick="onCardButtonClicked"
+            android:layout_margin="16dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/action_hand"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/cardButtonImageView" />
+
+            <TextView
+                android:id="@+id/cardButtonTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/card_button_text"
+                android:padding="15dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/card_featured"
+            android:layout_below="@+id/card_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="4dp"
+            android:layout_margin="6dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/featuredTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card_featured_text"
+                    android:gravity="center"
+                    android:textStyle="italic"
+                    android:background="@color/colorPrimary"
+                    android:padding="15dp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18sp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardTopFrame"
+                    android:gravity="center"
+                    android:layout_below="@+id/featuredTextView" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/featuredItem1"
+                        android:padding="5dp"
+                        android:orientation="vertical"
+                        android:onClick="intentToOneCubeActivity">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/featuredItem1ImageView"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/feat1"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
+                            app:riv_corner_radius="6dp"
+                            app:riv_border_width="0dp"
+                            app:riv_border_color="@color/colorPrimary"
+                            app:riv_mutate_background="false"
+                            app:riv_oval="true"
+                            android:layout_margin = "10dp"/>
+
+                        <TextView
+                            android:id="@+id/featuredItem1Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/feat_item_1_title"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_below="@id/featuredItem1ImageView"
+                            android:textColor="@color/colorAccent"
+                            android:paddingBottom="2dp"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/featuredItem1SubTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/feat_item_1_subtitle"
+                            android:gravity="center"
+                            android:layout_below="@id/featuredItem1ImageView"
+                            android:textColor="#424242"
+                            android:paddingBottom="10dp"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/featuredItem2"
+                        android:padding="5dp"
+                        android:layout_toRightOf="@+id/featuredItem1"
+                        android:orientation="vertical"
+                        android:onClick="intentToEightCubesActivity">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/featuredItem2ImageView"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/feat2"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
+                            app:riv_corner_radius="6dp"
+                            app:riv_border_width="0dp"
+                            app:riv_border_color="@color/colorPrimary"
+                            app:riv_mutate_background="false"
+                            app:riv_oval="true"
+                            android:layout_margin = "10dp"/>
+
+                        <TextView
+                            android:id="@+id/featuredItem2Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/feat_item_2_title"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_below="@id/featuredItem2ImageView"
+                            android:textColor="@color/colorAccent"
+                            android:paddingBottom="2dp"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:id="@+id/featuredItem2SubTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/feat_item_2_subtitle"
+                            android:gravity="center"
+                            android:layout_below="@id/featuredItem2ImageView"
+                            android:textColor="#424242"
+                            android:paddingBottom="10dp"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/featuredItem3"
+                        android:padding="5dp"
+                        android:layout_toRightOf="@+id/featuredItem2"
+                        android:orientation="vertical"
+                        android:onClick="intentToTSevenCubesActivity">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/featuredItem3ImageView"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/feat3"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
+                            app:riv_corner_radius="6dp"
+                            app:riv_border_width="0dp"
+                            app:riv_border_color="@color/colorPrimary"
+                            app:riv_mutate_background="false"
+                            app:riv_oval="true"
+                            android:layout_margin = "10dp"/>
+
+                        <TextView
+                            android:id="@+id/featuredItem3Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/feat_item_3_title"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_below="@id/featuredItem3ImageView"
+                            android:textColor="@color/colorAccent"
+                            android:paddingBottom="2dp"
+                            android:textSize="14sp"/>
+                        <TextView
+                            android:id="@+id/featuredItem3SubTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/feat_item_3_subtitle"
+                            android:gravity="center"
+                            android:layout_below="@id/featuredItem3ImageView"
+                            android:textColor="#424242"
+                            android:paddingBottom="10dp"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cardList"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/actionFrame"/>
+
+    </RelativeLayout>
+</ScrollView>

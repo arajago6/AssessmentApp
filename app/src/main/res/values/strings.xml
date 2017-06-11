@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Assessment App</string>
+    <string name="landing_content">Assessment App</string>
+    <string name="action_editText_hint">Text field to search or filter actions...</string>
+    <string name="action_button_text">GO</string>
+    <string name="card_button_text">VIEW ALL ACTIONS</string>
+    <string name="card_featured_text">Top 3 featured actions</string>
+    <string name="feat_item_1_title">Draw 1^3</string>
+    <string name="feat_item_1_subtitle">1 cube drawn</string>
+    <string name="feat_item_2_title">Draw 2^3</string>
+    <string name="feat_item_2_subtitle">8 cubes drawn</string>
+    <string name="feat_item_3_title">Draw 3^3</string>
+    <string name="feat_item_3_subtitle">27 cubes drawn</string>
+    <array name="all_actions">
+        <item>@array/feat1</item>
+        <item>@array/feat2</item>
+        <item>@array/feat3</item>
+        <item>@array/feat4</item>
+        <item>@array/feat5</item>
+        <item>@array/feat6</item>
+    </array>
+    <array name="feat1">
+        <item>@string/feat_item_1_title</item>
+        <item>@string/feat_item_1_subtitle</item>
+        <item>1</item>
+        <item>feat1</item>
+    </array>
+    <array name="feat2">
+        <item>@string/feat_item_2_title</item>
+        <item>@string/feat_item_2_subtitle</item>
+        <item>2</item>
+        <item>feat2</item>
+    </array>
+    <array name="feat3">
+        <item>@string/feat_item_3_title</item>
+        <item>@string/feat_item_3_subtitle</item>
+        <item>3</item>
+        <item>feat3</item>
+    </array>
+    <array name="feat4">
+        <item>Draw 4^3</item>
+        <item>64 cubes drawn</item>
+        <item>4</item>
+        <item>feat4</item>
+    </array>
+    <array name="feat5">
+        <item>Draw 5^3</item>
+        <item>125 cubes drawn</item>
+        <item>5</item>
+        <item>feat5</item>
+    </array>
+    <array name="feat6">
+        <item>Draw 6^3</item>
+        <item>216 cubes drawn</item>
+        <item>6</item>
+        <item>feat6</item>
+    </array>
+</resources>
