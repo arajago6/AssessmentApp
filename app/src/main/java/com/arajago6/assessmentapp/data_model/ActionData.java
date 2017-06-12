@@ -1,7 +1,9 @@
 package com.arajago6.assessmentapp.data_model;
 
+// Data model for the actions listed in the app
 public class ActionData {
 
+    // Action data fields
     private String title = "";
     private String subTitle = "";
     private String description = "This is some detailed description";
@@ -10,6 +12,7 @@ public class ActionData {
 
     public ActionData(){}
 
+    // Action data getters and setters
     public String getTitle() {
         return title;
     }

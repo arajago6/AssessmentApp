@@ -46,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Setting up the image banner slider
         imgSwitcher = (ImageSwitcher) findViewById(R.id.imgSwitcher);
         imgSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
             @Override
@@ -58,6 +59,8 @@ public class HomeActivity extends AppCompatActivity {
                 return myView;
             }
         });
+
+        // Adding some animation and listener for banner transition
         Animation in = AnimationUtils.loadAnimation(this,android.R.anim.fade_in);
         imgSwitcher.setInAnimation(in);
 
@@ -70,6 +73,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // Get handles to needed UI elements
         cButton = (CardView) findViewById(R.id.card_button);
         cFeatured = (CardView) findViewById(R.id.card_featured);
         recList = (RecyclerView) findViewById(R.id.cardList);
@@ -79,6 +83,7 @@ public class HomeActivity extends AppCompatActivity {
         recList.setLayoutManager(llmanager);
         res = getResources();
 
+        // Get action data from string array and create an ActionData container
         TypedArray actionResources = getResources().obtainTypedArray(R.array.all_actions);
         TypedArray itemDef;
 
@@ -100,7 +105,7 @@ public class HomeActivity extends AppCompatActivity {
 
         final ActionAdapter aAdapter = new ActionAdapter(actionDataList);
 
-        // Button listener
+        // Button listener - Sparks UI change and sets up adapter with ActionData container
         final Button gobtn = (Button) findViewById(R.id.go_button);
         gobtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -133,6 +138,7 @@ public class HomeActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "View all actions button clicked", Toast.LENGTH_SHORT).show();
     }
 
+    // onClick methods for featured actions
     public void intentToOneCubeActivity(View view){
         Intent intent = new Intent(getBaseContext(), OpenGLCubeActivity.class);
         intent.putExtra("baseCubeCount",1);
@@ -151,6 +157,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Menu inflation and management
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -173,19 +180,19 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
         else if (id == R.id.action_call_nonstatic) {
-            Toast.makeText(getApplicationContext(), "Returned String: "+getMsgFromJNI(), Toast.LENGTH_SHORT).show();
+            callJavaNonStaticMethodFromJNI();
+            return true;
+        }
+        else if (id == R.id.action_call_opengl) {
+            Intent intent = new Intent(getBaseContext(), JniOpenGLActivity.class);
+            startActivity(intent);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    static {
-        System.loadLibrary("library_native");
-    }
-
-    public native String getMsgFromJNI();
-
+    // RecyclerView Adapter for Action data
     public class ActionAdapter extends RecyclerView.Adapter<ActionAdapter.ActionViewHolder> {
 
         private ArrayList<ActionData> actionDataList;
@@ -243,5 +250,30 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
+
+    // Java non static method to be called from JNI
+    private String javaInstanceMethod(String jniStr){
+        Toast.makeText(getApplicationContext(), "Non static method was called by JNI. "+ jniStr, Toast.LENGTH_SHORT).show();
+        return "This string was returned from Java";
+    }
+
+    // For JNI. Load library and declare native methods
+    static {
+        System.loadLibrary("library_native");
+    }
+
+    public native String getMsgFromJNI();
+
+    public native void callJavaNonStaticMethodFromJNI();
+
+    public static native void on_surface_created();
+
+    public static native void on_surface_changed(int width, int height);
+
+    public static native void on_draw_frame();
+
+    public static native void init(int width, int height);
+
+    public static native void step();
 }
 

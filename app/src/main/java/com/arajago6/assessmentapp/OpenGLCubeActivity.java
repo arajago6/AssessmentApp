@@ -21,9 +21,10 @@ public class OpenGLCubeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Toast.makeText(getApplicationContext(), "OpenGL calls are made from Java code", Toast.LENGTH_SHORT).show();
+
         Intent mIntent = getIntent();
         final int cubeCount = mIntent.getIntExtra("baseCubeCount", 0);
-        Toast.makeText(getApplicationContext(), Integer.toString(cubeCount), Toast.LENGTH_SHORT).show();
 
         setContentView(R.layout.activity_open_gl_cube);
         oGLSurfaceView = (OpenGLSurfaceView) findViewById(R.id.open_gl_surface_view);

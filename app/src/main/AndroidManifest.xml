@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".OpenGLCubeActivity"></activity>
+        <activity android:name=".OpenGLCubeActivity" />
+        <activity android:name=".JniOpenGLActivity"></activity>
     </application>
 
 </manifest>

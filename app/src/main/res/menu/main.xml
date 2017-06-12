@@ -4,11 +4,16 @@
     <item
         android:id="@+id/action_JNI_get_string"
         android:orderInCategory="100"
-        android:title="JNI - Get a string"
+        android:title="JNI - Return a string"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_call_nonstatic"
         android:orderInCategory="100"
         android:title="JNI - Call Non-static Java method"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_call_opengl"
+        android:orderInCategory="100"
+        android:title="JNI - OpenGL calls from C++"
         app:showAsAction="never" />
 </menu>

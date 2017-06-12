@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 
 import com.arajago6.assessmentapp.opengl.OpenGLRenderer;
 
+// Custom SurfaceView for the Java OpenGL calls
 public class OpenGLSurfaceView extends GLSurfaceView
 {
     private OpenGLRenderer mRenderer;

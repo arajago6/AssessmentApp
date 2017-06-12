@@ -10,6 +10,9 @@ cmake_minimum_required(VERSION 3.4.1)
 # and CMake builds them for you. When you build your app, Gradle
 # automatically packages shared libraries with your APK.
 
+# now build app's shared lib
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+
 add_library( # Specifies the name of the library.
              library_native
 
@@ -17,8 +20,14 @@ add_library( # Specifies the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/jni/library_native.cpp )
+             src/main/jni/library_native.cpp)
+
+include_directories(/src/main/jni/include/)
 
 # Links your native library against one or more other native libraries.
 target_link_libraries( # Specifies the target library.
-                       library_native)
+                       library_native
+                       android
+                       log
+                       EGL
+                       GLESv2)
